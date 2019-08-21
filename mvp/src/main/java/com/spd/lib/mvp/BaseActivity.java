@@ -45,7 +45,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      * 因为ToolBar的变化很小，所以这里就在这里初始化一下，如果有其他Activity有变化，可以使用{@link #mToolBar}的对应方法来设置<p>
      * 当然，也可以参照{@link #initView(Bundle)}方法来写.
      */
-    private void initToolbar() {
+    protected void initToolbar() {
         mToolBar = findViewById(R.id.toolbar);
         mToolbarTitle = mToolBar.findViewById(R.id.toolbarTitle);
         mToolbarTitle.setText(MvpUtil.getActLabel(mContext, mContext.getClass().getName()));

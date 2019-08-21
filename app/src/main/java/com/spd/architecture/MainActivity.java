@@ -18,4 +18,9 @@ public class MainActivity extends BaseActivity {
     protected void initView(@Nullable Bundle savedInstanceState) {
 
     }
+
+    @Override
+    protected void initToolbar() {
+        super.initToolbar();
+    }
 }
