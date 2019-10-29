@@ -1,8 +1,8 @@
 package com.spd.architecture;
 
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import androidx.annotation.Nullable;
 
 import com.spd.lib.mvp.BaseActivity;
 

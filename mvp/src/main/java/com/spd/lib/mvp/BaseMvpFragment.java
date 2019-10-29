@@ -1,7 +1,8 @@
 package com.spd.lib.mvp;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
 
 /**
  * @author :Reginer in  2017/9/18 13:13.
