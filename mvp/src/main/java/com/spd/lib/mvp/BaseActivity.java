@@ -1,16 +1,21 @@
 package com.spd.lib.mvp;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+
+import java.util.Objects;
 
 /**
  * @author :Reginer in  2017/9/18 12:17.
@@ -23,6 +28,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected Context mContext;
     protected Toolbar mToolBar;
     protected TextView mToolbarTitle;
+    private Dialog mDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -74,4 +80,27 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @param savedInstanceState 保存的数据,就是{@link #onSaveInstanceState(Bundle)}中的outState.
      */
     protected abstract void initView(@Nullable Bundle savedInstanceState);
+
+    /**
+     * 显示等待框 .
+     */
+    public void showProgress() {
+        if (mDialog == null) {
+            mDialog = new Dialog(this);
+            Objects.requireNonNull(mDialog.getWindow()).setBackgroundDrawableResource(android.R.color.transparent);
+            ProgressBar progressBar = new ProgressBar(this);
+            progressBar.setIndeterminateDrawable(ContextCompat.getDrawable(this, R.drawable.mvp_progressbar));
+            mDialog.setContentView(progressBar);
+        }
+        mDialog.show();
+    }
+
+    /**
+     * 取消等待框 .
+     */
+    public void dismissProgress() {
+        if (mDialog != null) {
+            mDialog.dismiss();
+        }
+    }
 }
