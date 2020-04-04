@@ -3,8 +3,6 @@ package com.spd.lib.mvp;
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
 
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.disposables.Disposable;
 
 
 /**
@@ -21,16 +19,11 @@ public abstract class BasePresenter<V, M extends BaseModel> {
 
     private Reference<V> mViewRef;
 
-    private CompositeDisposable mDisposables;
 
     void attachView(V view) {
         mViewRef = new WeakReference<>(view);
-        mDisposables = new CompositeDisposable();
     }
 
-    public void addDisposable(Disposable disposable) {
-        mDisposables.add(disposable);
-    }
 
     public V getView() {
         if (mViewRef == null) {
@@ -49,7 +42,6 @@ public abstract class BasePresenter<V, M extends BaseModel> {
             mViewRef.clear();
             mViewRef = null;
         }
-        mDisposables.clear();
     }
 
     /**

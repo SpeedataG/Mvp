@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
  *         联系方式:QQ:282921012
  *         功能描述:mvp基类activity
  */
+@SuppressWarnings("rawtypes")
 public abstract class BaseMvpActivity<P extends BasePresenter> extends BaseActivity {
     protected P mPresenter;
 
