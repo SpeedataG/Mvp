@@ -27,7 +27,6 @@ import java.util.Objects;
 public abstract class BaseActivity extends AppCompatActivity {
     protected Context mContext;
     protected Toolbar mToolBar;
-    protected TextView mToolbarTitle;
     private Dialog mDialog;
 
     @Override
@@ -54,9 +53,6 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     protected void initToolbar() {
         mToolBar = findViewById(R.id.toolbar);
-        mToolbarTitle = mToolBar.findViewById(R.id.toolbarTitle);
-        mToolbarTitle.setText(MvpUtil.getActLabel(mContext, mContext.getClass().getName()));
-        mToolBar.setTitle("");
         setSupportActionBar(mToolBar);
         mToolBar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
