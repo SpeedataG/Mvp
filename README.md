@@ -88,9 +88,6 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> {
 
 设置标题
 ```
-方法1：mToolbarTitle.setText("标题");
-
-方法2:
 AndroidManifest.xml对应activity中添加
 android:label="标题"
 
